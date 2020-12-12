@@ -8,7 +8,7 @@ client.categories = [];
 client.prefix = prefix;
 
 const emojis = {
-    emotiguy = {
+    emotiguy: {
         business: "729362524184510575",
         sad: "717683548487811111",
         sad3: "729374854104612934",
