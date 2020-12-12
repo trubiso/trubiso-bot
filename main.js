@@ -9,12 +9,30 @@ client.prefix = prefix;
 
 const emojis = {
     emotiguy: {
-        business: "729362524184510575",
-        sad: "717683548487811111",
-        sad3: "729374854104612934",
-        happy: "717683480787550228",
-        think: "750019258842480663",
-        please: "729378455728422924"
+        business: {
+            id: "729362524184510575",
+            emoji: "<:business:729362524184510575>"
+        },
+        sad: {
+            id: "717683548487811111",
+            emoji: "<:sad:717683548487811111>"
+        },
+        sad3: {
+            id: "729374854104612934",
+            emoji: "<:sad3:729374854104612934>"
+        },
+        happy: {
+            id: "717683480787550228",
+            emoji: "<:happy:717683480787550228>"
+        },
+        think: {
+            id: "750019258842480663",
+            emoji: "<:think:750019258842480663>"
+        },
+        please: {
+            id: "729378455728422924",
+            emoji: "<:please:729378455728422924>"
+        }
     }
 }
 
@@ -43,10 +61,10 @@ client.on('message', msg => {
     if (!msg.content.startsWith(prefix)) {
         if (msg.mentions.has(client.user)) {
             msg.react("👋");
-            msg.react(emojis.emotiguy.happy);
+            msg.react(emojis.emotiguy.happy.id);
         }
         if (msg.content.includes("busines")) {
-            msg.react(emojis.emotiguy.business);
+            msg.react(emojis.emotiguy.business.id);
         }
         return;
     }
