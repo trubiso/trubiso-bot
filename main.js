@@ -1,13 +1,12 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
+const { emojis } = require('./vars.js');
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 client.categories = [];
 client.prefix = prefix;
-
-const emoji_happy = "717683480787550228";
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 const categoryFiles = fs.readdirSync('./categories').filter(file => file.endsWith('.js'));
@@ -34,18 +33,16 @@ client.on('message', msg => {
     if (!msg.content.startsWith(prefix)) {
         if (msg.mentions.has(client.user)) {
             msg.react("👋");
-            msg.react(emoji_happy);
+            msg.react(emojis.emotiguy.happy.id);
+        }
+        if (msg.content.includes("busines")) {
+            msg.react(emojis.emotiguy.business.id);
         }
         return;
     }
 
     const args = msg.content.slice(prefix.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
-    
-    if (command === 'business'){
-        msg.channel.send("<:business:729362524184510575>");
-        return;
-    }
 
     try {
         client.commands.get(command).execute(msg, args, client);
