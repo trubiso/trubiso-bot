@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "algebra.js": "^0.2.6",
+    "convert-units": "^2.3.4",
+    "discord.js": "^12.4.1"
+  }
+}
