@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'test',
 	help: {
-        category: 'General',
+        category: 'general',
 		brief: 'Just a test.',
 		usage: 'Seriously, just a test. What could go wrong when calling this?'
 	},
