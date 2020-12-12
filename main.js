@@ -1,40 +1,12 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
+const { emojis } = require('./vars.js');
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 client.categories = [];
 client.prefix = prefix;
-
-const emojis = {
-    emotiguy: {
-        business: {
-            id: "729362524184510575",
-            emoji: "<:business:729362524184510575>"
-        },
-        sad: {
-            id: "717683548487811111",
-            emoji: "<:sad:717683548487811111>"
-        },
-        sad3: {
-            id: "729374854104612934",
-            emoji: "<:sad3:729374854104612934>"
-        },
-        happy: {
-            id: "717683480787550228",
-            emoji: "<:happy:717683480787550228>"
-        },
-        think: {
-            id: "750019258842480663",
-            emoji: "<:think:750019258842480663>"
-        },
-        please: {
-            id: "729378455728422924",
-            emoji: "<:please:729378455728422924>"
-        }
-    }
-}
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 const categoryFiles = fs.readdirSync('./categories').filter(file => file.endsWith('.js'));
