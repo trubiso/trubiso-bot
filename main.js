@@ -33,7 +33,10 @@ client.once('ready', () => {
 
 client.on('guildMemberAdd', member => {
     if (member.guild.id == 717683408012181505)
-        member.roles.add(member.guild.roles.cache.get(choose("725843105445576796", "725843316662468641")));
+        member.roles.add(member.guild.roles.get(choose("725843105445576796", "725843316662468641")));
+    else
+        let a = client.channels.get("717707777635516477");
+        a.send("AAAAAAAAAAAAAAAAA");
 });
 
 client.on('message', msg => {
