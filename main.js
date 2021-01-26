@@ -8,6 +8,8 @@ client.commands = new Discord.Collection();
 client.categories = [];
 client.prefix = prefix;
 
+choose = arr => arr[Math.floor(Math.random() * arr.length)];
+
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 const categoryFiles = fs.readdirSync('./categories').filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
@@ -27,6 +29,11 @@ for (const file of categoryFiles) {
 
 client.once('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
+});
+
+client.on('guildMemberAdd', member => {
+    if (member.guild.id == 717683408012181505)
+        member.roles.add(member.guild.roles.cache.get(choose("725843105445576796", "725843316662468641")));
 });
 
 client.on('message', msg => {
