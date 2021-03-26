@@ -27,7 +27,7 @@ module.exports = {
 			out = `${num} ${src} = ${converter(num).from(src).to(dst).toFixed(3)} ${dst}`;
 			message.delete();
 		} catch (error) {
-			out = error.toString();
+			out = "Correct usage: `convert {number} {source unit} {destination unit}`\n" + error.toString();
 		}
 		return message.channel.send(out);
 	}
